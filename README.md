@@ -7,14 +7,28 @@
 - [Technologies Used](#technologies-used)
 
 ## Overview
-The Gallery App is a web application that allows users to explore and manage a collection of images. Users can log in to the gallery, browse through images, and use the Drag-and-Drop feature to rearrange the image order within the gallery. This README provides detailed instructions on how to set up and run the project locally.
+Gallery Image Box is a web application that allows users to explore and manage a collection of images. Users can log in to the gallery, browse through images, and use the Drag-and-Drop feature to rearrange the image order within the gallery. This README provides detailed instructions on how to set up and run the project locally.
+    - This project is HNGx stage 3 task.
+
+## Preview
+### Home Page
+![image](https://github.com/IamNaeto/gallerybox/assets/105589308/59eee67b-7b44-4167-b5d1-7e456f4b3487)
+
+### Gallery Page
+![image](https://github.com/IamNaeto/gallerybox/assets/105589308/0814b9fc-22a2-4ef8-ad88-17b68fd222df)
+
+## Demo
+
+Live Link :: [Go Live](https://galleryimagebox.vercel.app/).
+
+
+### Installation
 
 **Prerequisites**
 Before you begin, ensure you have met the following requirements:
 
 *Make sure you have Node.js installed on your machine. You can download it from [Node.js](nodejs.org.)*
 
-### Installation
 Follow these steps to set up the project locally:
 
 1. **Clone the Repository:** Start by cloning the repository to your local machine using Git:
