@@ -1,6 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/d309ca86-e414-45b0-815b-3e6ca4dbe17e/deploy-status)](https://app.netlify.com/sites/hng-gallery-app-task/deploys)
-
-# Gallery App
+# Gallery Image Box
 **Table of Contents**
 - [Overview](#overview)
 - [Installation](#installation)
@@ -22,7 +20,7 @@ Follow these steps to set up the project locally:
 1. **Clone the Repository:** Start by cloning the repository to your local machine using Git:
 
     ```bash
-    git clone https://github.com/HNG-Tasks/Stage-three-task.git
+    https://github.com/IamNaeto/gallerybox.git
 
 2. **Navigate to the Project Directory:** Change your current directory to the project folder:
 
