@@ -38,19 +38,19 @@ Follow these steps to set up the project locally:
 
 2. **Navigate to the Project Directory:** Change your current directory to the project folder:
 
-cd gallery-app
+cd gallerybox
 
 3. **Install Dependencies:** Install the project dependencies using npm:
 
 npm install
 
 ### Usage
-To run the Image Gallery App locally, follow these steps:
+To run the Gallery Image Box locally, follow these steps:
 
 **Start the Development Server:** Launch the Vite development server:
 npm run dev
 
-2. **Open in Browser:** Open your web browser and navigate to http://localhost:3000 to access the Image Gallery App.
+2. **Open in Browser:** Open your web browser and navigate to http://localhost:3000 to access the Gallary Image Box.
 
 ### Features
 - **User Authentication**: Users can sign up and log in to the gallery.
