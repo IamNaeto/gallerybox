@@ -48,7 +48,7 @@ const HeroContent = styled.div`
   text-align: center;
   color: #fff;
 
-   @media (max-width: 420px) {
+   @media (max-width: 580px) {
      top: 30%;
    }
 `;
@@ -57,7 +57,7 @@ const HeroTitle = styled.h1`
   font-size: 2.5rem;
   margin: 0.5rem 0 0.2rem;
 
-   @media (max-width: 420px) {
+   @media (max-width: 580px) {
      font-size: 1.8rem;
    }
 `;
@@ -66,7 +66,7 @@ const HeroText = styled.p`
   font-size: 1.6rem;
   margin: 0.2rem 0 1rem;
 
-   @media (max-width: 420px) {
+   @media (max-width: 580px) {
      font-size: 1rem;
    }
 `;
@@ -94,7 +94,7 @@ const Home = () => {
       <HeroSection>
         <ImageSlider />
         <HeroContent>
-          <HeroTitle>Welcome to our Gallery</HeroTitle>
+          <HeroTitle>Drag And Drop Image Gallery</HeroTitle>
           <HeroText>Explore the beauty of nature through our stunning photos.</HeroText>
           <Link to="/login" style={linkStyle}>Log in</Link>
         </HeroContent>

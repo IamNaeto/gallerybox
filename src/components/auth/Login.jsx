@@ -37,6 +37,7 @@ const ErrorMessage = styled.p`
   color: #ff5722;
   font-size: 0.9rem;
   margin-top: 0.5rem;
+  margin-bottom: 1rem;
 `;
 
 const LoginButton = styled.button`
@@ -109,7 +110,7 @@ const Login = () => {
         } else if (error.code === "auth/invalid-email") {
           setEmailError("Invalid Email format");
         } else {
-          setEmailError("Authentication failed. Fill in your information");
+          setEmailError("Check your details or SignUp instead");
           return;
         }
       });

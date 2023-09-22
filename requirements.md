@@ -5,7 +5,7 @@
 
 ## Requirements:
 #### Simple Authentication: 
--  This means login with this email and password:
+- This means login with this email and password:
 - UserName: user@example.com
 - Password: 1Password
 - The authentication form fields should have proper validation setup, with proper error messages. You do not need to implement this on the backend yourself, you could use solutions like NextAuth, Auth0 or Clerk, firebase for Auth or add etc.
