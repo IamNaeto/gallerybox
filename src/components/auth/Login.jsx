@@ -109,8 +109,10 @@ const Login = () => {
           setPasswordError("Incorrect password");
         } else if (error.code === "auth/invalid-email") {
           setEmailError("Invalid Email format");
+        } else if (error.code === "auth/invalid-login-credentials") {
+          setEmailError("Invalid login-credentials, SignUp");
         } else {
-          setEmailError("Check your details or SignUp instead");
+          setEmailError("Authentication failed");
           return;
         }
       });

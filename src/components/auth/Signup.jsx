@@ -120,8 +120,10 @@ const Signup = () => {
           setPasswordError("Incorrect password");
         } else if (error.code === "auth/invalid-email") {
           setEmailError("Invalid Email format");
+        } else if (error.code === "auth/weak-password") {
+          setEmailError("Password should be at least 6 characters");
         } else {
-          setEmailError("Authentication failed. Email already in use");
+          setEmailError("Authentication failed");
           return;
         }
       });
