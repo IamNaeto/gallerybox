@@ -1,0 +1,13 @@
+{
+    "build": {
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "output": {
+      "env": {
+        "DOTENV_CONFIG_PATH": "./.env"
+      }
+    }
+  }
+  
