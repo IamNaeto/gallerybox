@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineEye,  AiOutlineEyeInvisible } from "react-icons/ai"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignupContainer = styled.div`
   display: flex;
@@ -95,8 +97,6 @@ const Signup = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handlePasswordToggle = () => {
@@ -105,25 +105,33 @@ const Signup = () => {
   const handleRegistration = (e) => {
     e.preventDefault();
 
-      // Reset error messages
-      setEmailError("");
-      setPasswordError("");
+    if (!email || !password) {
+      toast.error("Fill in your email and password to continue!")
+      return;
+    }
+
+
   
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
-        navigate("/login");
+        toast.success("Account created successfully")
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
       })
       .catch((error) => {
         console.log("Registration error:", error);
         if (error.code === "auth/wrong-password") {
-          setPasswordError("Incorrect password");
+          toast.error("Incorrect password");
         } else if (error.code === "auth/invalid-email") {
-          setEmailError("Invalid Email format");
+          toast.error("Invalid Email format");
         } else if (error.code === "auth/weak-password") {
-          setEmailError("Password should be at least 6 characters");
+          toast.error("Password should be at least 6 characters");
+        } else if (error.code === "auth/email-already-in-use") {
+          toast.error("Email already in use");
         } else {
-          setEmailError("Authentication failed");
+          toast.error("Authentication failed");
           return;
         }
       });
@@ -131,6 +139,7 @@ const Signup = () => {
 
   return (
     <SignupContainer>
+      <ToastContainer/>
         <h2>Sign Up</h2>
       <SignupForm onSubmit={handleRegistration}>
       <p style={{marginBottom: '10px'}}>Sign up for an account today. It's cost-free and can be completed in just a few minutes.</p>
@@ -140,7 +149,6 @@ const Signup = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        {emailError && <ErrorMessage>{emailError}</ErrorMessage>}
 
         <PasswordFieldContainer>
         <InputField
@@ -153,7 +161,6 @@ const Signup = () => {
             {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
           </PasswordToggleContainer>
           </PasswordFieldContainer>
-         {passwordError && <ErrorMessage>{passwordError}</ErrorMessage>}
         <SubmitButton type="submit">Register Now</SubmitButton>
       </SignupForm>
       <LinkContainer>

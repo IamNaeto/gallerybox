@@ -89,12 +89,12 @@ const Home = () => {
     <HomePageContainer>
       <Header>
         <Title>Gallery</Title>
-        <Link to="/signup" style={{marginRight: "2rem", marginBottom: "0.3rem", padding: "0.7rem 1.5rem", color: "#fff", backgroundColor: "#ff5722", textDecoration: "none", borderRadius: "5px", fontSize: "1rem"}}>Sign Up</Link>
+        <Link to="/signup" style={{marginRight: "2rem",  padding: "0.7rem 1.5rem", color: "#fff", backgroundColor: "#ff5722", textDecoration: "none", borderRadius: "5px", fontSize: "1rem"}}>Sign Up</Link>
       </Header>
       <HeroSection>
         <ImageSlider />
         <HeroContent>
-          <HeroTitle>Drag And Drop Image Gallery</HeroTitle>
+          <HeroTitle>Image Gallery</HeroTitle>
           <HeroText>Explore the beauty of nature through our stunning photos.</HeroText>
           <Link to="/login" style={linkStyle}>Log in</Link>
         </HeroContent>

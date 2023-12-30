@@ -69,7 +69,7 @@ const Footer = () => {
         <li>Privacy & Policy</li>
         <li>Terms & Conditions</li>
       </FooterList>
-      <CopyrightText>Gallery -  All about Nature</CopyrightText>
+      <CopyrightText>Gallery -  All About Nature</CopyrightText>
       <CopyrightText>&copy; 2023 Created by Charles Obimnaeto Egesionu</CopyrightText>
     </FooterContainer>
   );

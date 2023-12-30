@@ -4,6 +4,8 @@ import { auth } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import styled from "styled-components";
 import { AiOutlineEye,  AiOutlineEyeInvisible } from "react-icons/ai"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginPageContainer = styled.div`
   display: flex;
@@ -41,6 +43,7 @@ const ErrorMessage = styled.p`
 `;
 
 const LoginButton = styled.button`
+  width: 100%;
   background-color: #ff5722;
   color: #fff;
   border: none;
@@ -83,8 +86,6 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handlePasswordToggle = () => {
@@ -94,25 +95,31 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Reset error messages
-    setEmailError("");
-    setPasswordError("");
+    if (!email || !password) {
+      toast.error("Email and password are required!")
+      return;
+    }
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
-        navigate("/gallery");
+        toast.success("Login Successful")
+        setTimeout(() => {
+          navigate("/gallery");
+        }, 2000);
       })
       .catch((error) => {
         console.log(error);
         if (error.code === "auth/wrong-password") {
-          setPasswordError("Incorrect password");
+          toast.error("Incorrect password")
         } else if (error.code === "auth/invalid-email") {
-          setEmailError("Invalid Email format");
+          toast.error("Invalid Email format");
         } else if (error.code === "auth/invalid-login-credentials") {
-          setEmailError("Invalid login-credentials, SignUp");
+          toast.error("Invalid login credentials, register");
+        } else if (error.code === "auth/too-many-requests") {
+          toast.error("Too-many-requests, try in the next 2mins");
         } else {
-          setEmailError("Authentication failed");
+          toast.error("Authentication failed");
           return;
         }
       });
@@ -120,6 +127,7 @@ const Login = () => {
 
   return (
     <LoginPageContainer>
+    <ToastContainer/>
     <h2>Login</h2>
     <LoginForm onSubmit={handleLogin}>
       <p style={{ marginBottom: "10px" }}>
@@ -131,7 +139,6 @@ const Login = () => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      {emailError && <ErrorMessage>{emailError}</ErrorMessage>}
 
       <PasswordFieldContainer>
           <InputField
@@ -145,7 +152,6 @@ const Login = () => {
           </PasswordToggleContainer>
         </PasswordFieldContainer>
 
-        {passwordError && <ErrorMessage>{passwordError}</ErrorMessage>}
         <LoginButton type="submit">Log In</LoginButton>
       </LoginForm>
 
